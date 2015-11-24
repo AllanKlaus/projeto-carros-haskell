@@ -1,0 +1,10 @@
+$case marcas
+    $of []
+        <p> Não há marcas cadastradas!
+    $of [x]
+        <ul>
+            <li class="headerLI">
+                <span> Marca
+            $forall Entity marcasId marca <- marcas
+                <li class="rows"> 
+                    <span>#{marcasMarca marca}                

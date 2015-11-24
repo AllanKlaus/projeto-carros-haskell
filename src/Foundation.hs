@@ -5,10 +5,10 @@
 module Foundation where
 import Import
 import Yesod
+import Database.Persist.Postgresql
 import Yesod.Static
 import Data.Text
-import Database.Persist.Postgresql
-    ( ConnectionPool, SqlBackend, runSqlPool, runMigration )
+import Data.Time
 
 data Sitio = Sitio { connPool :: ConnectionPool,
                      getStatic :: Static }
@@ -20,7 +20,23 @@ Usuario
    nome Text
    pass Text
    deriving Show
+   
+Marcas
+   marca Text
+   deriving Show
+   
+Carros
+   modelo Text
+   valor Double
+   qtd Int
+   marcaid MarcasId
+   deriving Show
 
+Vendas
+   userId UsuarioId
+   carroId CarrosId
+   qtde Int
+   UniqueFornPeca userId carroId
 |]
 
 mkYesodData "Sitio" pRoutes
@@ -33,9 +49,11 @@ instance YesodPersist Sitio where
        runSqlPool f pool
 
 instance Yesod Sitio where
-    authRoute _ = Just $ LoginR
+    authRoute _ = Just $ HomeR
     isAuthorized LoginR _ = return Authorized
-    isAuthorized AdminR _ = isAdmin
+    isAuthorized InserirMarcaR _ = isAdmin
+    isAuthorized InserirCarroR _ = isAdmin
+    isAuthorized InserirVendaR _ = isAdmin
     isAuthorized _ _ = isUser
 
 isAdmin = do
@@ -43,12 +61,12 @@ isAdmin = do
     return $ case mu of
         Nothing -> AuthenticationRequired
         Just "admin" -> Authorized
-        Just _ -> Unauthorized "Soh o admin acessa aqui!"
+        Just _ -> Unauthorized "Somente Administrador"
 
 isUser = do
     mu <- lookupSession "_ID"
     return $ case mu of
-        Nothing -> AuthenticationRequired
+        Nothing -> Authorized
         Just _ -> Authorized
 
 type Form a = Html -> MForm Handler (FormResult a, Widget)

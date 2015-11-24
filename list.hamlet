@@ -1,3 +1,6 @@
-<h1> Pessoas cadastradas:
+<ul>
+    <li class="headerLI">
+        <span> Usuários
     $forall Entity pid user <- listaU
-        <p> #{usuarioNome user} <br>
+       <li class="rows"> 
+          <span>#{usuarioNome user}

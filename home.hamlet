@@ -1,0 +1,23 @@
+<h1> Controle de automóveis!
+<ul class="menu">
+ <li class="menu">
+     <span>
+           <a href=@{HomeR}>Home
+     <span>
+           <a href=@{UsuarioR}>Inserir Usuário
+     <span>
+           <a href=@{InserirMarcaR}>Inserir Marcas
+     <span>
+           <a href=@{InserirCarroR}>Inserir Carros
+     <span>
+           <a href=@{InserirVendaR}>Inserir Vendas
+     <span>
+           <a href=@{ListUserR}>Listar Usuário
+     <span>
+           <a href=@{ListarMarcaR}>Listar Marcas
+     <span>
+           <a href=@{ListarCarroR}>Listar Carros
+     <span>
+           <a href=@{ListarVendaR}>Listar Vendas
+     <span>
+           <a href=@{ByeR}>Logout

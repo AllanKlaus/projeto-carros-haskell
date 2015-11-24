@@ -10,7 +10,15 @@ pRoutes = [parseRoutes|
    /static StaticR Static getStatic
    /ima ImgR GET
    /login LoginR GET POST
-   / WelcomeR GET
-   /bye ByeR GET
-   /admin AdminR GET
+   /logout ByeR GET
+   
+   / HomeR GET
+   /home HomeLogadoR GET
+   /inserirCarro InserirCarroR GET POST
+   /listarCarro ListarCarroR GET
+   /inserirMarca InserirMarcaR GET POST
+   /listarMarca ListarMarcaR GET
+   /carro/#CarrosId VerCarroR GET
+   /vender InserirVendaR GET POST
+   /listarVenda ListarVendaR GET
 |]

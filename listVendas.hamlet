@@ -1,0 +1,14 @@
+$case vendas
+    $of []
+        <p> Não há vendas cadastradas!
+    $of [x]
+        <ul>
+            <li class="headerLI">
+                <span> Venda
+                <span> Usuario
+                <span> Carro
+            $forall (Entity oq _, Entity _ np, Entity _ fn) <- vendas
+               <li class="rows">
+                  <span>#{fromSqlKey oq}
+                  <span>#{usuarioNome np}
+                  <span>#{carrosModelo fn}

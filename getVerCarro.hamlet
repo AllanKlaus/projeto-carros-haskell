@@ -1,0 +1,5 @@
+<h1> #{carrosModelo carro}
+$maybe m <- marca
+    <p> Marca: #{show m}
+<p> Valor: #{carrosValor carro}
+<p> Estoque: #{carrosQtd carro}

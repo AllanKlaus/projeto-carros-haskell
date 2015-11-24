@@ -1,7 +1,6 @@
-<h1>
-    #{y}
-    $maybe mm <- msg
-        #{mm}
-    <form method=post action=@{x} enctype=#{enctype}>
-        ^{widget}
-        <input type="submit" value=#{val}>
+<h1> #{y}
+$maybe mm <- msg
+    #{mm}
+<form method=post action=@{x} enctype=#{enctype}>
+    ^{widget}
+    <input type="submit" value=#{val}>

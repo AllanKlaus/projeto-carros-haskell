@@ -1,0 +1,11 @@
+$case carros
+    $of []
+        <p> Não há carros cadastrados!
+    $of [x]
+        <ul>
+            <li class="headerLI">
+                <span> Carro
+            $forall Entity carrosId carro <- carros
+               <li class="rows"> 
+                  <span>#{carrosModelo carro}
+                  <span><a href=@{VerCarroR carrosId}>Detalhes

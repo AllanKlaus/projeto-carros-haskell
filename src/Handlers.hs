@@ -65,7 +65,7 @@ getUsuarioR = do
 
 getImgR :: Handler Html
 getImgR = defaultLayout [whamlet| 
-    <img src=@{StaticR empolgou_jpg}>
+    
 |]
 
 {-<img src=@{StaticR car_png}>-}
@@ -103,7 +103,7 @@ postUsuarioR = do
 getListUserR :: Handler Html
 getListUserR = do
     listaU <- runDB $ selectList [] [Asc UsuarioNome]
-    defaultLayout $ widgetCss >> widgetHome >> $(whamletFile "list.hamlet")
+    defaultLayout $ widgetCss >> widgetHome >> $(whamletFile "listUsuarios.hamlet")
 
 getByeR :: Handler Html
 getByeR = do
